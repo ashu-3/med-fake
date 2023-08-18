@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+  }
+
+  .content-block {
+    border: 3px solid rgb(60, 86, 134);
+    width: 100%
+  }
+  
+  .sidebar {
+    flex: 0 0 auto; /* This ensures the sidebar doesn't grow or shrink */
+    width: 15%;   /* Set an appropriate width for your sidebar */
+    background-color: lightgray;
+     overflow: hidden;
+  }
+  
+
+  

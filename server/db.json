@@ -1,0 +1,94 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "username": "duncan",
+        "country": "australia",
+        "password": "123"
+      },
+      {
+        "id": 2,
+        "username": "sarah",
+        "country": "england",
+        "password": "123"
+      },
+      {
+        "id": 3,
+        "username": "admin",
+        "country": "usa",
+        "password": "123"
+      },
+      {
+        "username": "test2",
+        "password": "123",
+        "id": 4
+      }
+    ],
+    "profiles": [
+      {
+        "id": 1,
+        "userId": 1,
+        "job": "Plumber"
+      },
+      {
+        "id": 2,
+        "userId": 2,
+        "job": "developer"
+      },
+      {
+        "id": 3,
+        "userId": 3,
+        "job": "Manager"
+      }
+    ],
+    "blogs": [
+      {
+        "id": "b1",
+        "name": "Spanner",
+        "author": "tools",
+        "category":"blog",
+        "description":"ok1",
+        "imgUrl":"https://media.istockphoto.com/id/887987150/photo/blogging-woman-reading-blog.jpg?s=612x612&w=0&k=20&c=7SScR_Y4n7U3k5kBviYm3VwEmW4vmbngDUa0we429GA="
+      },
+      {
+        "id": "b2",
+        "name": "Ashwath",
+        "author": "Ashwath",
+        "category":"blog",
+        "description":"Music connects people offline and online. In the digital space, artists, fans and critics gather on music blogs to discuss all aspects of the art form. Musicians and producers like Make Pop Music discuss music creation and lyric writing. People come to his blog to read about tricks of the trade from an authentic source. With the help of Wix Music's audio streaming, musicians can share their work on their blog. If you fall into the music fan or critic bucket, choosing a specific genre such as hip hop, rock or country music can help you stand out and become the go-to place for readers. Although a lot of research is involved with these types of blogs when staying up to date with song releases, artist news and more, it might just earn you free VIP passes to report on upcoming exclusive music events. ",
+        "imgUrl":"https://neilpatel.com/wp-content/uploads/2017/09/blog-post-image-guide.jpg"
+      },
+      {
+        "id": "b3",
+        "name": "A one",
+        "author": "Ashwath",
+        "category":"blog",
+        "description":"",
+        "imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpc_lxCQfjBEwQnYB2HtL18kqjMsOdYIjEXQ&usqp=CAU"
+      },
+      {
+        "id": "b4",
+        "name": "A twothree",
+        "author": "Ashwath",
+        "category":"blog",
+        "description":"",
+        "imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcg_0OAclMYj9p30oYuEkh3awWSNVwWnba_g&usqp=CAU"
+      },
+      {
+        "id": "b5",
+        "name": "Spanner",
+        "author": "abc",
+        "category":"blog",
+        "description":"",
+        "imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnqgRAb49-QsVJpeNhEzlwDb5nxh7u8M9t-Q&usqp=CAU"
+      },
+      {
+        "id": "b6",
+        "name": "Spanner",
+        "author": "abcxyz",
+        "category":"blog",
+        "description":"",
+        "imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8dVln409-ODXK5R-FrVKSYvq78Z2OTRIP5g&usqp=CAU"
+      }
+    ]
+  }

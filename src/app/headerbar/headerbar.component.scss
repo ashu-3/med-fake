@@ -1,0 +1,26 @@
+@import '../shared/shared.scss';
+
+mat-toolbar {
+    height: 70px;
+    background-color: $nav-bg-color2;
+    color:$white-color; 
+}
+.nav-options {
+   color: $white-color;
+   display: flex;
+   font-size: $sub-heading-size;
+   justify-content: flex-end;
+   max-width: 100%;
+   width: 100%;
+   & > button  {  
+    //background-color: #e9e9e8;
+    margin-right: 35px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+mat-menu-item {
+    width: 10px;
+}

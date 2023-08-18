@@ -1,0 +1,70 @@
+ <div [ngClass]="status ? 'sidebar-nav' : 'sidebar-nav-min'">
+    <mat-toolbar class="sidebar-nav-mat-toolbar">
+            <span class="side-nav-header" *ngIf="status">My Blog</span>
+            <mat-icon class="menu" (click)="toggleShow()">reorder</mat-icon>
+    </mat-toolbar>
+
+    <div *ngIf="status">
+        <div class="counter-section"  >
+            <h2>Total posts</h2>
+            <div class="counter-header">
+                <p>Poems</p>
+                <p>Blogs</p>
+            </div>
+            
+            <div class="counter-header">
+                <p>12</p>
+                <p>6</p>
+            </div>
+        </div>
+
+        <div class="searchbar">
+            <mat-form-field appearance="fill" class="custom-mat-input">
+                <div class="vertical-center">
+                    <input matInput class="search-input" #inputValue placeholder="search by author or blog">
+                    <a href="#" [routerLink]="['/search-blog',inputValue.value]"><mat-icon matSuffix>search</mat-icon></a>
+                </div>
+              </mat-form-field>
+        </div>
+        <div *ngIf="status" class="sidebar-div">
+            <ul  *ngFor="let data of navOptions">
+                <li class="sidebar-nav-options" >
+                  {{data.label}}
+                </li>
+            </ul>
+        </div>    
+    </div>
+
+    <!-- Status is false -->
+    <div *ngIf="!status">
+        <div class="counter-section" >
+            <h2>Total posts</h2>
+            <div class="counter-header counter-header-min">
+                <p>Poem</p>
+                <p>12</p>
+            </div>
+            
+            <div class="counter-header counter-header-min">
+            <p>blog</p>
+                <p>6</p>
+            </div>
+        </div>
+        
+        <div class="searchbar">
+            <mat-form-field appearance="fill" class="custom-mat-input">
+                <div class="vertical-center">
+                    <input matInput class="search-input-min" placeholder="search by author or blog">
+                    <mat-icon matSuffix> <a href="#">search</a></mat-icon>
+                </div>
+              </mat-form-field>
+        </div>
+
+        <div  class="sidebar-div sidebar-div-min">
+            <ul *ngFor="let data of navOptions">
+                <li class="sidebar-nav-options-min">
+                    <mat-icon>{{data.icon}}</mat-icon>
+                </li>
+            </ul>
+        </div>    
+    </div>    
+</div>

@@ -1,0 +1,25 @@
+<div class="header">
+    <mat-toolbar>
+        <span class ="app header">My Blog</span>
+        <div class="nav-options">
+            <button mat-icon-button [matMenuTriggerFor]="settingsMenu" aria-label="Example icon-button with a menu" matMenuTriggerXPosition="after"> <mat-icon class="header_icons">dialpad</mat-icon> </button>
+            <button mat-icon-button [matMenuTriggerFor]="accountMenu" aria-label="Example icon-button with a menu"><mat-icon class="header_icons">account_circle</mat-icon></button>
+        </div>
+        <mat-menu #settingsMenu="matMenu" xPosition="after" yPosition="below">
+            <ng-template matMenuContent> <button (click)="toggleTheme()" mat-menu-item>
+                <span>{{themeText}}</span>
+                </button></ng-template>
+           
+        </mat-menu>
+
+        <mat-menu #accountMenu="matMenu" [hasBackdrop]="true" xPosition="after" yPosition="below">
+            <button mat-menu-item (click)="toggleProfile()">
+            <span>{{themeText1}}</span>
+            </button>
+            <button mat-menu-item disabled>
+            <mat-icon></mat-icon>
+            <span>voice mail</span>
+            </button>
+        </mat-menu>
+    </mat-toolbar>
+</div>

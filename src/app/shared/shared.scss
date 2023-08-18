@@ -1,0 +1,67 @@
+$nav-bg-color : #6f9681;
+$nav-bg-color2 : #71829c;
+$white-color: #fff;
+$grey_black-color: #222;
+
+$side-nav-mat-color : rgb(125, 125, 186);
+$sub-heading-size:16px;
+$sidebar-bg-color: #404e67;
+
+@mixin main-block-border {
+    border: 2px solid #a6b5ad;
+}
+
+@mixin dark-theme {
+   // border: 2px solid #a6b5ad;
+    color: $white-color;
+    background-color: #333;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+@mixin light-theme {
+  //  border: 2px solid #a6b5ad;
+    color: $grey_black-color;
+    background-color:rgb(246, 246, 246);
+    box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
+}
+
+$main-block-bg-color: rgb(202, 199, 199);
+$mian-sub-block-bg-color: rgb(246, 246, 246);
+
+// Dark theme
+
+$main-block-bg-color-dark: #222;
+$mian-sub-block-bg-color-dark: #222;
+
+
+.google-chart {
+    display: inline-block;
+    margin-left: 30px;
+    margin-right: 10px;
+    height: 350px;
+    width:45%;
+    transform: translateX(5%);
+}
+
+
+//RWD and media query
+
+@media only screen and (min-width: 300px) and (max-width: 590px){
+    .google-chart {
+        display: block;
+        margin-left: 5px;
+        margin-top: 10px;
+        height: 200px;
+        width:250px
+    }
+}
+
+@media only screen and (min-width: 591px) and (max-width: 990px){
+    .google-chart {
+        display: inline-block;
+        margin-left: 50px;
+        margin-top: 10px;
+        height: 300px;
+        width:450px
+    }
+}
