@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     flex: 1; /* This allows the content block to grow and take remaining space */
-    justify-content: space-between;
+    justify-content: space-evenly;
     height: 100%;
     padding: 20px;
     overflow: hidden;
