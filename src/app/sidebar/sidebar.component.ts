@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output,ChangeDetectorRef } from '@angular/core';
 import { navbarData } from './nav-options';
 import { SharedService } from '../shared/shared.service';
 
@@ -10,18 +10,29 @@ import { SharedService } from '../shared/shared.service';
 export class SidebarComponent implements OnInit {
 
   /// Varibale declarations
-  status:boolean = true;
+  blogCount:number =0;
+  poemCount:number = 0;
   inputValue:string = ''
   isSmallMobileDevice: MediaQueryList = window.matchMedia("(max-width: 920px)");
   navOptions = navbarData;
+  status:boolean = true;
 
-  constructor(private sharedSer:SharedService) { }
+  constructor(private sharedSer:SharedService,private cdRef:ChangeDetectorRef) { }
 
   ngOnInit(): void {
+    this.cdRef.detectChanges();
+
     if(this.isSmallMobileDevice.matches) {
       this.status = false;
     }
+    
+    setTimeout(()=>{
+      this.blogCount = this.sharedSer.data;  
+    },10)
+   
+
   }
+  
 
   toggleShow() {
     this.status = !this.status

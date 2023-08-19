@@ -12,10 +12,12 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
+import {MatCardModule} from '@angular/material/card';
 
 
 const materialComponents = [
     MatButtonModule,
+    MatCardModule,
     MatTableModule,
     MatToolbarModule,
     MatButtonToggleModule,
