@@ -78,11 +78,9 @@ a {
     padding-bottom: 10px;
     padding-top: 25px;
     transition: width 1s;
-    // & > a {
         color: $white-color;
         text-decoration: none;
         padding: 20px 20px 20px 30px;
-    //}
     & > mat-icon {
         margin: 20px 20px 0 25px;
         vertical-align: bottom;
@@ -123,21 +121,6 @@ a {
         padding-bottom: 10px;
     }
 }
-
-.counter-header {
-    & > a {
-        color: #fff;
-        text-decoration: none;
-    }
-    &:hover {
-        cursor: pointer;
-    }
-  }
-
-  .search-icon {
-    color: #fff;
-    padding: 10px 5px;
-  }
 
 
 //RWD and media query
