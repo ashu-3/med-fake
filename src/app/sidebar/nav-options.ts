@@ -1,13 +1,25 @@
 export const navbarData = [
     {
-        routeLink : 'piechart',
-        label: 'Pie Chart',
+        routeLink : 'consultation',
+        label: 'consultaion',
         icon: 'pie_chart'
     },
 
     {
+        routeLink : 'patient',
+        label: 'patients',
+        icon: 'bar_chart'
+    },
+
+    {
         routeLink : 'barchart',
-        label: 'Bar Chart',
+        label: 'in progress..',
+        icon: 'bar_chart'
+    },
+
+    {
+        routeLink : 'barchart',
+        label: 'in progress..',
         icon: 'bar_chart'
     },
 ]

@@ -10,9 +10,7 @@ import { SharedService } from '../shared/shared.service';
 export class SidebarComponent implements OnInit {
 
   /// Varibale declarations
-  blogCount:number =0;
-  poemCount:number = 0;
-  inputValue:string = ''
+  selectedItem: any = null; // Initialize selectedItem to null
   isSmallMobileDevice: MediaQueryList = window.matchMedia("(max-width: 920px)");
   navOptions = navbarData;
   status:boolean = true;
@@ -20,27 +18,23 @@ export class SidebarComponent implements OnInit {
   constructor(private sharedSer:SharedService,private cdRef:ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.cdRef.detectChanges();
-
+  
     if(this.isSmallMobileDevice.matches) {
       this.status = false;
     }
-    
-    setTimeout(()=>{
-      this.blogCount = this.sharedSer.data;  
-    },10)
-   
 
+    // Select the first item by default
+    if (this.navOptions.length > 0) {
+      this.selectedItem = this.navOptions[0];
+    }
   }
-  
 
   toggleShow() {
-    this.status = !this.status
+    this.status = !this.status;
   }
 
-  // searchBlog(key:string) {
-  //   this.inputValue=key;
-  //   this.sharedSer.searchKey.next(this.inputValue);
-  //   console.log('sidebar'+this.inputValue);
-  // }
+  selectItem(item: any): void {
+    this.selectedItem = item; // Set the selected item when an item is clicked
+    console.log("Item selected:", this.selectedItem); 
+  }
 }

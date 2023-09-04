@@ -1,0 +1,39 @@
+
+<div class="next-consultation">
+    <div class="patient-section">
+        <div class="patient-details" *ngIf="patientDetails">
+            <p>age: {{patientDetails.patientAge}}</p>
+            <p>mob: {{patientDetails.patientMobile}}</p>
+            <p>Last Visited on: {{ patientDetails.lastVisited | date:'EEE MMM dd yyyy' }}</p>
+            <span class="history"><a href="#"><p>history</p></a></span>
+        </div>
+        <div class="time-slot" *ngIf="patientDetails"> 
+            <h4>appointment slot : 10-30</h4>
+            <h4> patient Name: {{patientDetails.patientName}} </h4>
+        </div>
+        <div class="patient-receipt">
+            <img [src]="imageUrl" alt="Receipt Image" (click)="toggleModal()">
+        </div>
+    </div> 
+    <div  class="forward-appointment">
+        <button mat-button color="primary" (click)="onPreviousClick()" *ngIf="patientIndex > 0">Previous Consultaion</button>
+        <button mat-button color="primary" (click)="onNextClick()" *ngIf="hasMorePatients()">Next Consultaion</button>
+    </div>
+</div>
+
+<div class="all-consultation">
+
+</div>
+
+<div class="modal" *ngIf="showModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close" (click)="toggleModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <img [src]="imageUrl" alt="Receipt Image">
+        </div>
+      </div>
+    </div>
+</div>

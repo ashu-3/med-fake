@@ -1,0 +1,12 @@
+<div class="modal" [ngClass]="{ 'show': showModal }">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" (click)="closeModal.emit()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <img [src]="imageUrl" alt="Image">
+        </div>
+      </div>
+    </div>
+</div>

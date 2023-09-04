@@ -1,0 +1,45 @@
+/* Style for the modal background */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+  
+  /* Style for the modal dialog */
+  .modal-dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  /* Style for the modal content */
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 80%;
+  }
+  
+  /* Style for the close button */
+  .modal-header {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .close {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Style for the modal image */
+  .modal-body img {
+    max-width: 100%;
+    height: auto;
+  }
