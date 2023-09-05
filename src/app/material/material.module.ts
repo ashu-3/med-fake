@@ -29,8 +29,7 @@ const materialComponents = [
     MatSelectModule,
     MatIconModule,
     MatTabsModule,
-    MatPaginatorModule
-    
+    MatPaginatorModule,
 ]
 @NgModule({
   imports: [

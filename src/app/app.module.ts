@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { ConsultationComponent } from './home/consultation/consultation.component';
 import { PatientListComponent } from './home/patient-list/patient-list.component';
 import { ImageModalComponent } from './image-modal/image-modal.component';
+import { FilterTableTimeslotPipe } from './pipes/filter-table-timeslot.pipe';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { ImageModalComponent } from './image-modal/image-modal.component';
     ConsultationComponent,
     PatientListComponent,
     ImageModalComponent,
+    FilterTableTimeslotPipe,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { ImageModalComponent } from './image-modal/image-modal.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

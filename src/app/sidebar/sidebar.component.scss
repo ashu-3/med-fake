@@ -69,8 +69,15 @@ a {
 }
 
 .side-nav-header {
-    font-size: $sub-heading-size;
-    color: #f5f5dc;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1.2px;
+}
+
+.side-nav-logo {
+    color: #98e195;
+    font-size: 42px;
+    padding-left: 5px;
 }
 
 .sidebar-nav-options {

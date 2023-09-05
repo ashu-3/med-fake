@@ -4,7 +4,7 @@
         <div class="patient-details" *ngIf="patientDetails">
             <p>age: {{patientDetails.patientAge}}</p>
             <p>mob: {{patientDetails.patientMobile}}</p>
-            <p>Last Visited on: {{ patientDetails.lastVisited | date:'EEE MMM dd yyyy' }}</p>
+            <p>Last Visited on: {{ patientDetails.lastVisited | date:'dd MMM yyyy' }}</p>
             <span class="history"><a href="#"><p>history</p></a></span>
         </div>
         <div class="time-slot" *ngIf="patientDetails"> 
@@ -22,7 +22,36 @@
 </div>
 
 <div class="all-consultation">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th *ngFor="let thData of consulationTableHeader">{{ thData }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let trData of getVisibleItems(); let i = index">
+        <tr>
+          <th scope="row">{{ (currentPage - 1) * itemsPerPage + i + 1 }}</th>
+          <td>{{ trData.patientName }}</td>
+          <td>{{ trData.timeSlot }}</td>
+          <td>{{ trData.patientAge }}</td>
+          <td>{{ trData.patientMobile }}</td>
+          <td>{{ trData.lastVisited | date:'dd MMM' }}</td>
+          <td>{{ trData.city }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
 
+  <div class="pagination-controls">
+    <button mat-icon-button (click)="previousPage()" [disabled]="currentPage === 1">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <span>Page {{ currentPage }}</span>
+    <button mat-icon-button (click)="nextPage()" [disabled]="currentPage === totalPages()">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
 </div>
 
 <div class="modal" *ngIf="showModal">
