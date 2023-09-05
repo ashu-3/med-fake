@@ -4,10 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PatientDetailsService {
-  // patientName: string = "";
-  // patientAge?: number;
-  // patientMobile?: number;
-  // lastVisited?: Date;
 
   constructor() {
     // Initialize the array of patient details in the constructor
@@ -19,6 +15,7 @@ export class PatientDetailsService {
     this.patientDetails = [
       {
         city:"sagara",
+        dateSlot: new Date('2023-09-06'),
         patientName: "Rajdha",
         patientAge: 35,
         patientMobile: 87678909876,
@@ -27,14 +24,16 @@ export class PatientDetailsService {
       },
       {
         city:"hosasagara",
+        dateSlot: new Date('2023-09-05'),
         patientName: "Rajdha",
         patientAge: 53,
         patientMobile: 87678909876,
-        lastVisited: new Date("2023-07-21"),
+        lastVisited: new Date("2022-07-21"),
         timeSlot: '11:30'
       },
       {
         city:"namma sagara",
+        dateSlot: new Date('2023-09-06'),
         patientName: "abc Raju okRaj",
         patientAge: 45,
         patientMobile: 87678909876,
@@ -43,30 +42,34 @@ export class PatientDetailsService {
       },
       {
         city:"sshimoga",
+        dateSlot: new Date('2023-09-06'),
         patientName: "Raju okRaj",
         patientAge: 4,
         patientMobile: 87678909876,
-        lastVisited: new Date("2023-09-05"),
+        lastVisited: new Date("2023-08-05"),
         timeSlot: '11:30'
       },
       {
         city:"beluru",
+        dateSlot: new Date('2023-09-06'),
         patientName: "xyz okRaj",
         patientAge: 32,
         patientMobile: 87678909876,
-        lastVisited: new Date("2023-09-05"),
+        lastVisited: new Date("2023-08-05"),
         timeSlot: '10:30'
       },
       {
         city:"makki gadde",
+        dateSlot: new Date('2023-09-05'),
         patientName: "xyz abc",
         patientAge: 33,
         patientMobile: 67678909879,
-        lastVisited: new Date("2023-09-05"),
+        lastVisited: new Date("2023-07-05"),
         timeSlot: '12:30'
       },
       {
         city:"sagara",
+        dateSlot: new Date('2023-09-05'),
         patientName: "ipson",
         patientAge: 33,
         patientMobile: 87678987906,
@@ -75,15 +78,17 @@ export class PatientDetailsService {
       },
       {
         city:"hombale",
+        dateSlot: new Date('2023-09-05'),
         patientName: "lorum",
         patientAge: 23,
         patientMobile: 87678987906,
-        lastVisited: new Date("2023-09-11"),
+        lastVisited: new Date("2022-09-11"),
         timeSlot: '15:30'
       },
 
       {
         city:"shimoga",
+        dateSlot: new Date('2023-09-05'),
         patientName: "lorum",
         patientAge: 25,
         patientMobile: 87678987906,
@@ -96,6 +101,7 @@ export class PatientDetailsService {
   // Define a property to hold the array of patient details
   public patientDetails: Array<{
     city:string;
+    dateSlot:Date;
     patientName: string;
     patientAge?: number;
     patientMobile?: number;
@@ -106,6 +112,7 @@ export class PatientDetailsService {
   // You can add methods to manipulate the patientDetails array if needed
   public addPatientDetail(patientDetail: {
     city:string;
+    dateSlot:Date;
     patientName: string;
     patientAge?: number;
     patientMobile?: number;

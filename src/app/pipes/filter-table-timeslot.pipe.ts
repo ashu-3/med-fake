@@ -11,7 +11,7 @@ export class FilterTableTimeslotPipe implements PipeTransform {
     if (!data) return [];
     
     const filteredData = data.filter(item => {
-      const itemDate = new Date(item.lastVisited);
+      const itemDate = new Date(item.dateSlot);
 
       // Check if itemDate is a valid date
       if (!isNaN(itemDate.getTime())) {

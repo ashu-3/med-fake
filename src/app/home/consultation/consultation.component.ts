@@ -34,6 +34,7 @@ export class ConsultationComponent implements OnInit {
 
   allPatientDetails: {
     city:string;
+    dateSlot:Date;
     patientName: string;
     patientAge?: number;
     patientMobile?: number;
@@ -55,7 +56,7 @@ export class ConsultationComponent implements OnInit {
     );
 
     this.filteredData = this.filteredData.filter((patient) => {
-      const patientDate = new Date(patient.lastVisited);
+      const patientDate = new Date(patient.dateSlot);
       return (
         patientDate.getDate() === this.currentDate.getDate() &&
         patientDate.getMonth() === this.currentDate.getMonth() &&
