@@ -7,7 +7,7 @@ export const navbarData = [
 
     {
         routeLink : 'patient',
-        label: 'patients',
+        label: 'patients(in progress..)',
         icon: 'bar_chart'
     },
 

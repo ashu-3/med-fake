@@ -23,11 +23,13 @@ export class ConsultationComponent implements OnInit {
   itemsPerPage = 3;
 
   patientIndex: number=0;
+
   patientDetails: {
     patientName: string;
     patientAge?: number;
     patientMobile?: number;
     lastVisited?: Date;
+    timeSlot:string;
   } | null = null;
 
   allPatientDetails: {
@@ -46,15 +48,21 @@ export class ConsultationComponent implements OnInit {
 
   ngOnInit(): void {
     this.allPatientDetails = this.consultationSer.patientDetails;
-    this.loadPatientDetails();
     this.filteredData = this.filterPipe.transform(
       this.allPatientDetails,
       this.currentDate,
       this.currentTimeSlot
     );
 
-    console.log(this.filteredData);
-    // Sort filteredData by timeSlot in ascending order
+    this.filteredData = this.filteredData.filter((patient) => {
+      const patientDate = new Date(patient.lastVisited);
+      return (
+        patientDate.getDate() === this.currentDate.getDate() &&
+        patientDate.getMonth() === this.currentDate.getMonth() &&
+        patientDate.getFullYear() === this.currentDate.getFullYear()
+      );
+    });
+    
     this.filteredData.sort((a, b) => {
       const timeA = a.timeSlot;
       const timeB = b.timeSlot;
@@ -62,35 +70,29 @@ export class ConsultationComponent implements OnInit {
     });
 
     console.log("Filtered Data:", this.filteredData);
-  }
 
-  loadPatientDetails() {
-    // Get patient details by index
-    const patient = this.consultationSer.getPatientByIndex(this.patientIndex);
-    if (patient) {
-      this.patientDetails = patient;
-    } else {
-      // Handle the case when no more patients are available
-      this.patientDetails = null;
+    // Set initial patient details
+    if (this.filteredData.length > 0) {
+      this.patientDetails = this.filteredData[0];
     }
   }
 
   onNextClick() {
-    // Increment the index to load the next patient
-    this.patientIndex++;
-    this.loadPatientDetails();
+    if (this.patientIndex < this.filteredData.length - 1) {
+      this.patientIndex++;
+      this.patientDetails = this.filteredData[this.patientIndex];
+    }
   }
 
   onPreviousClick() {
     if (this.patientIndex > 0) {
       this.patientIndex--;
-      this.loadPatientDetails();
+      this.patientDetails = this.filteredData[this.patientIndex];
     }
   }
 
   hasMorePatients(): boolean {
-    const nextPatientIndex = this.patientIndex + 1;
-    return nextPatientIndex < this.consultationSer.patientDetails.length;
+    return this.patientIndex < this.filteredData.length - 1;
   }
 
   toggleModal() {
