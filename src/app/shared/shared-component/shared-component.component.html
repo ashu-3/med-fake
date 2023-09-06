@@ -1,0 +1,12 @@
+<div class="modal" *ngIf="showModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close" (click)="toggleModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <img [src]="imageUrl" alt="Receipt Image">
+        </div>
+      </div>
+    </div>
+</div>

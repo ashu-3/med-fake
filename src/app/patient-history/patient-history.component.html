@@ -1,0 +1,51 @@
+<!-- check patienthistory needed in ngif -->
+<div class="patient-section" *ngIf="patientDetails && (patientDetails.lastVisited !==null)">
+    <div class="patient-details">
+        <p>patient Name: {{patientDetails.patientName}}</p>
+    </div>
+    <div class="patient-details">
+        <p>age: {{patientDetails.patientAge}}</p>
+    </div>
+    <div class="patient-details">
+        <p>mob: {{patientDetails.patientMobile}}</p>
+    </div>
+
+    <!-- <div class="patient-details"></div>
+        <label for="visitedDateSelect">Select a Visit Date:</label>
+        <select id="visitedDateSelect" [(ngModel)]="selectedVisitDate">
+            <option [value]="null" disabled selected>Select a Visit Date</option>
+            <option *ngFor="let visit of patientHistory.visitedDetails" [ngValue]="visit.visitedDate">
+                {{ visit.visitedDate | date:'medium' }}
+            </option>
+        </select>
+    </div> -->
+
+    <div class="patient-details dropdown">
+        <mat-form-field>
+        <mat-label for="visitedDateSelect">visited date</mat-label>
+        <mat-select id="visitedDateSelect" [(ngModel)]="selectedVisitedDate">
+          <mat-option *ngFor="let visit of patientHistory.visitedDetails" [value]="visit.visitedDate" (click)="openModal()"
+          >
+            {{ visit.visitedDate |date:'dd MMM yyyy' }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+    </div>
+</div>
+
+<div class="no-records" *ngIf="patientDetails && (patientDetails.lastVisited ===null)">    
+    <p>{{patientDetails.patientName}} doest not have any history records</p>
+</div>
+
+<div class="modal" *ngIf="showModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close" (click)="toggleModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <img [src]="selectedImageURL" alt="Receipt Image">
+        </div>
+      </div>
+    </div>
+</div>

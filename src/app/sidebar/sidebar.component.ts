@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output,ChangeDetectorRef } from '@angular/core';
 import { navbarData } from './nav-options';
-import { SharedService } from '../shared/shared.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -15,7 +14,7 @@ export class SidebarComponent implements OnInit {
   navOptions = navbarData;
   status:boolean = true;
 
-  constructor(private sharedSer:SharedService,private cdRef:ChangeDetectorRef) { }
+  constructor(private cdRef:ChangeDetectorRef) { }
 
   ngOnInit(): void {
   

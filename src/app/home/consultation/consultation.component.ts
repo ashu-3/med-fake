@@ -25,6 +25,7 @@ export class ConsultationComponent implements OnInit {
   patientIndex: number=0;
 
   patientDetails: {
+    patientId:number;
     patientName: string;
     patientAge?: number;
     patientMobile?: number;
@@ -33,12 +34,13 @@ export class ConsultationComponent implements OnInit {
   } | null = null;
 
   allPatientDetails: {
+    patientId:number;
     city:string;
     dateSlot:Date;
     patientName: string;
     patientAge?: number;
     patientMobile?: number;
-    lastVisited?: Date;
+    lastVisited?: Date | null;
     timeSlot:string;
   } [] = [];
 
@@ -96,10 +98,9 @@ export class ConsultationComponent implements OnInit {
     return this.patientIndex < this.filteredData.length - 1;
   }
 
+  ///model image popup
   toggleModal() {
-
     this.showModal = !this.showModal;
-
   }
 
 /// pagination

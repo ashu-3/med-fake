@@ -5,7 +5,7 @@
             <p>age: {{patientDetails.patientAge}}</p>
             <p>mob: {{patientDetails.patientMobile}}</p>
             <p>Last Visited on: {{ patientDetails.lastVisited | date:'dd MMM yyyy' }}</p>
-            <span class="history"><a href="#"><p>history (in progress..)</p></a></span>
+            <span class="history"><a [routerLink]="['/history', patientDetails.patientId]"><p>history</p></a></span>
         </div>
         <div class="time-slot" *ngIf="patientDetails"> 
             <h4>appointment slot :{{ patientDetails.timeSlot}}</h4>

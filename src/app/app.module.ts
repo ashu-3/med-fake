@@ -15,6 +15,8 @@ import { PatientListComponent } from './home/patient-list/patient-list.component
 import { ImageModalComponent } from './image-modal/image-modal.component';
 import { FilterTableTimeslotPipe } from './pipes/filter-table-timeslot.pipe';
 import { DatePipe } from '@angular/common';
+import { PatientHistoryComponent } from './patient-history/patient-history.component';
+import { SharedComponentComponent } from './shared/shared-component/shared-component.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { DatePipe } from '@angular/common';
     PatientListComponent,
     ImageModalComponent,
     FilterTableTimeslotPipe,
+    PatientHistoryComponent,
+    SharedComponentComponent
   ],
   imports: [
     BrowserModule,

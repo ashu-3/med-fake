@@ -1,1 +1,42 @@
-<p>patient-list works!</p>
+<div class="all-patients-details">
+    <div class="search-bar">
+        <input
+          type="text"
+          [(ngModel)]="searchTerm"
+          placeholder="Search by name or ID"
+          (input)="performSearch()"
+          (ngModelChange)="clearSearchResults()"
+        />
+        <mat-icon class="search-icon">search</mat-icon>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th *ngFor="let thData of allPatientsTableHeader">{{ thData }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let trData of getVisibleItems(); let i = index">
+          <tr>
+            <th scope="row">{{ (currentPage - 1) * itemsPerPage + i + 1 }}</th>
+            <td><a [routerLink]="['/history', trData.patientId]">{{ trData.patientName }}</a></td>
+            <td><a [routerLink]="['/history', trData.patientId]">{{ trData.patientId }}</a></td>
+            <td>{{ trData.patientAge }}</td>
+            <td>{{ trData.patientMobile }}</td>
+            <td>{{ trData.lastVisited | date:'dd MMM yyyy' }}</td>
+            <td>{{ trData.city }}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+</div>
+<div class="pagination-controls">
+    <button mat-icon-button (click)="previousPage()" [disabled]="currentPage === 1">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <span>Page {{ currentPage }}</span>
+    <button mat-icon-button (click)="nextPage()" [disabled]="currentPage === totalPages()">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+</div>
