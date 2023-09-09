@@ -14,9 +14,9 @@ export class ConsultationComponent implements OnInit {
 
   @ViewChild('fileInput') fileInput!: ElementRef;
 
+  hideSuccessMsg = true;
   showAddModal = false;
   showModal = false;
-  showSuccessMsg = true;
   imageUrl = 'https://img.freepik.com/free-vector/realistic-receipt-template_23-2147938550.jpg?w=2000';
 
   consulationTableHeader = ['#','name','time slot','age','contact no','last visited','city'];
@@ -113,6 +113,8 @@ export class ConsultationComponent implements OnInit {
   ///add details popuop
   toggleAddDetails() {
     this.showAddModal = !this.showAddModal;
+    this.hideSuccessMsg = true;
+
   }
 
   /// pagination
@@ -160,7 +162,7 @@ export class ConsultationComponent implements OnInit {
       // Clear the input field after attaching files
       this.fileInput.nativeElement.value = '';
     }
-    this.showSuccessMsg = false;
+    this.hideSuccessMsg = false;
   }
 
 
