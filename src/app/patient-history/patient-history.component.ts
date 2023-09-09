@@ -28,7 +28,6 @@ export class PatientHistoryComponent implements OnInit {
           this.patientDetails = this.allPatientsService.findPatientById(patientId);
           //history
           this.patientHistory = this.historySer.findPatientById(patientId);
-          console.log(this.patientDetails);
         } else {
           console.log("id null in pataient-details component")
         }

@@ -16,7 +16,7 @@ export class PatientDetailsService {
       {
         patientId:101,
         city:"sagara",
-        dateSlot:new Date("2023-09-06"),
+        dateSlot:new Date("2023-09-08"),
         timeSlot:"10-30",
         patientName: "Rajdha",
         patientAge: 35,
@@ -26,7 +26,7 @@ export class PatientDetailsService {
       {
         patientId:102,
         city:"hosasagara",
-        dateSlot:new Date("2023-09-06"),
+        dateSlot:new Date("2023-09-08"),
         timeSlot:"11-30",
         patientName: "Rajdha",
         patientAge: 53,

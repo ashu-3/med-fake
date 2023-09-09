@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { PatientDetailsService } from 'src/app/service/patient-details.service';
 import { FilterTableTimeslotPipe } from 'src/app/pipes/filter-table-timeslot.pipe';
 import { DatePipe } from '@angular/common';
+import { PatientHistoryService } from 'src/app/service/patient-history.service';
 
 @Component({
   selector: 'app-consultation',
@@ -11,12 +12,18 @@ import { DatePipe } from '@angular/common';
 })
 export class ConsultationComponent implements OnInit {
 
+  @ViewChild('fileInput') fileInput!: ElementRef;
+
+  showAddModal = false;
   showModal = false;
+  showSuccessMsg = true;
   imageUrl = 'https://img.freepik.com/free-vector/realistic-receipt-template_23-2147938550.jpg?w=2000';
 
   consulationTableHeader = ['#','name','time slot','age','contact no','last visited','city'];
   currentDate = new Date(); // Current date
   currentTimeSlot = '11:30'; // Current time slot
+
+  attachedFiles: File[] = [];
 
   //table pagination
   currentPage = 1;
@@ -46,7 +53,7 @@ export class ConsultationComponent implements OnInit {
 
   filteredData: any[] = []; // Initialize as an empty array
 
-  constructor(private consultationSer:PatientDetailsService,private filterPipe:FilterTableTimeslotPipe, private datePipe: DatePipe ) {
+  constructor(private consultationSer:PatientDetailsService,private filterPipe:FilterTableTimeslotPipe, private datePipe: DatePipe,private patientHistoryService:PatientHistoryService ) {
    }
 
   ngOnInit(): void {
@@ -103,27 +110,58 @@ export class ConsultationComponent implements OnInit {
     this.showModal = !this.showModal;
   }
 
-/// pagination
-previousPage() {
-  if (this.currentPage > 1) {
-    this.currentPage--;
+  ///add details popuop
+  toggleAddDetails() {
+    this.showAddModal = !this.showAddModal;
   }
-}
 
-nextPage() {
-  if (this.currentPage < this.totalPages()) {
-    this.currentPage++;
+  /// pagination
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
   }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages()) {
+      this.currentPage++;
+    }
+  }
+
+  totalPages(): number {
+    return Math.ceil(this.filteredData.length / this.itemsPerPage);
+  }
+
+  getVisibleItems(): any[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.filteredData.slice(startIndex, endIndex);
+  }
+
+  onFileChange(event: any) {
+    const files: FileList | null = event.target.files;
+    if (files) {
+        for (let i = 0; i < files.length; i++) {
+            this.attachedFiles.push(files.item(i) as File);
+        }
+    }
 }
 
-totalPages(): number {
-  return Math.ceil(this.filteredData.length / this.itemsPerPage);
-}
+  attachFilesToPatient() {
+    const patientId = this.patientDetails?.patientId;
+    if (patientId && this.attachedFiles.length > 0) {
+      this.patientHistoryService.addFileToVisitedDetails(
+        patientId,
+        new Date(),
+        this.attachedFiles.map(file => file.name)
+      );
+      console.log("patient id"+patientId);
+      console.log("file name"+this.attachedFiles);
+      // Clear the input field after attaching files
+      this.fileInput.nativeElement.value = '';
+    }
+    this.showSuccessMsg = false;
+  }
 
-getVisibleItems(): any[] {
-  const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-  const endIndex = startIndex + this.itemsPerPage;
-  return this.filteredData.slice(startIndex, endIndex);
-}
 
 }

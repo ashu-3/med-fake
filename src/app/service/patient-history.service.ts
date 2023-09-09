@@ -147,4 +147,15 @@ export class PatientHistoryService {
   public findPatientById(patientId: number): any {
     return this.allPatientHistory.find(patient => patient.patientId === patientId);
   }
+  
+  // Function to add a file to a specific patient's visited details
+  public addFileToVisitedDetails(patientId: number, visitedDate: Date, imageURL: string[]): void {
+    const patient = this.findPatientById(patientId);
+    if (patient) {
+      if (!patient.visitedDetails) {
+        patient.visitedDetails = [];
+      }
+      patient.visitedDetails.push({ visitedDate, imageURL });
+    }
+  }
 }

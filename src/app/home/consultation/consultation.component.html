@@ -6,6 +6,7 @@
             <p>mob: {{patientDetails.patientMobile}}</p>
             <p>Last Visited on: {{ patientDetails.lastVisited | date:'dd MMM yyyy' }}</p>
             <span class="history"><a [routerLink]="['/history', patientDetails.patientId]"><p>history</p></a></span>
+            <button mat-raised-button color="primary" (click)="toggleAddDetails()">Add details <span class="add-icon">+</span></button>
         </div>
         <div class="time-slot" *ngIf="patientDetails"> 
             <h4>appointment slot :{{ patientDetails.timeSlot}}</h4>
@@ -65,4 +66,26 @@
         </div>
       </div>
     </div>
+</div>
+
+<div class="modal addModal" *ngIf="showAddModal && patientDetails">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <span class="close" (click)="toggleAddDetails()">&times;</span>
+          </div>
+          <div class="modal-body">
+              <h4>patient-details</h4>
+              <p>patient name : {{patientDetails.patientName}}</p>
+              <p>Patient id: {{patientDetails.patientId}}</p>
+              <!-- Add the file input element here -->
+              <input #fileInput type="file" (change)="onFileChange($event)" accept=".jpg, .jpeg, .png, .gif">
+              <span>----------> </span>
+              <button mat-icon-button matTooltip="Primary" color="primary" aria-label="Example icon-button with a heart icon" (click)="attachFilesToPatient()">
+                  <mat-icon>attachment</mat-icon>attach selected file
+              </button>
+              <p class="success-msg" [hidden]="showSuccessMsg">File attached succesfully</p>
+          </div>
+      </div>
+  </div>
 </div>

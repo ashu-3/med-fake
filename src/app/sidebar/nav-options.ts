@@ -13,7 +13,7 @@ export const navbarData = [
 
     {
         routeLink : 'barchart',
-        label: 'in progress..',
+        label: 'add patinet',
         icon: 'bar_chart'
     },
 

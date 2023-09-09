@@ -1,6 +1,7 @@
+@import '../../shared/shared.scss';
+
 h4 {
     font-family: 'roboto';
-    margin: 60px 10px;
     text-align: center;
 }
 
@@ -8,9 +9,17 @@ h4 {
     font-size: 16px;
 }
 
+input {
+  margin-top: 10px;
+}
+
 p { 
     font-family: 'roboto';
     font-size: 18px;
+}
+
+.mat-primary {
+  margin-left: 20px;
 }
 
 .forward-appointment {
@@ -95,6 +104,14 @@ p {
     
 }
 
+.time-slot {
+  margin: 60px 10px;
+}
+
+.success-msg {
+  color:$success-msg;
+  margin-top: 20px;
+}
 
 @media only screen and (min-width: 990px) {
     .modal-dialog {
