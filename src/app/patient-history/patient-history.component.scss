@@ -1,6 +1,11 @@
 ::ng-deep .mat-form-field .mat-form-field-label {
-    color: blue;
-  }
+    color: #fff;
+}
+
+::ng-deep .mat-select-arrow{
+  color:#fff;
+  font-weight: 900;
+}
 
 .no-records {
     font-size: 18px;
@@ -14,7 +19,9 @@
 
 .patient-section {
     align-items: center;
+    background-color: #375c5d;
     border: 2px solid gray;
+    color: #fff;
     display: flex;
     justify-content: space-between;
     justify-self: center;
