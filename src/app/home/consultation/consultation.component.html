@@ -83,9 +83,9 @@
               <p>Patient id: {{patientDetails.patientId}}</p>
               <!-- Add the file input element here -->
               <input #fileInput type="file" (change)="onFileChange($event)" accept=".jpg, .jpeg, .png, .gif">
-              <span>----------> </span>
+              <span>=========> </span>
               <button mat-icon-button matTooltip="Primary" color="primary" aria-label="Example icon-button with a heart icon" (click)="attachFilesToPatient()">
-                  <mat-icon>attachment</mat-icon>attach selected file
+                  <mat-icon>attachment</mat-icon>add selected file
               </button>
               <p class="success-msg" [hidden]="hideSuccessMsg">File attached succesfully</p>
           </div>

@@ -153,6 +153,10 @@ export class ConsultationComponent implements OnInit {
   attachFilesToPatient() {
     const patientId = this.patientDetails?.patientId;
     if (patientId && this.attachedFiles.length > 0) {
+      this.hideSuccessMsg = false;
+      if(this.attachedFiles.length == 0) {
+        this.hideSuccessMsg = false;
+      }
       this.patientHistoryService.addFileToVisitedDetails(
         patientId,
         new Date(),
@@ -163,7 +167,6 @@ export class ConsultationComponent implements OnInit {
       // Clear the input field after attaching files
       this.fileInput.nativeElement.value = '';
     }
-    this.hideSuccessMsg = false;
   }
 
 
