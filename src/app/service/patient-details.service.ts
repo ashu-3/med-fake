@@ -16,7 +16,7 @@ export class PatientDetailsService {
       {
         patientId:101,
         city:"sagara",
-        dateSlot:new Date("2023-09-08"),
+        dateSlot:new Date("2023-09-11"),
         timeSlot:"10-30",
         patientName: "Rajdha",
         patientAge: 35,
@@ -62,7 +62,7 @@ export class PatientDetailsService {
         timeSlot:"15-30",
         patientAge: 32,
         patientMobile: 87678909876,
-        lastVisited: new Date("2023-08-05"),
+        lastVisited: new Date("2023-08-11"),
       },
       {
         patientId:106,
@@ -98,18 +98,18 @@ export class PatientDetailsService {
       {
         patientId:109,
         city:"shimoga",
-        dateSlot:new Date("2023-09-08"),
+        dateSlot:new Date("2023-09-11"),
         timeSlot:"14-30",
         patientName: "lorum123",
         patientAge: 25,
         patientMobile: 87678987906,
-        lastVisited: new Date("2023-09-05"),
+        lastVisited: new Date("2023-09-11"),
       },
 
       {
         patientId:110,
         city:"shimoga",
-        dateSlot:new Date("2023-09-08"),
+        dateSlot:new Date("2023-09-11"),
         timeSlot:"16-30",
         patientName: "lorum xyz",
         patientAge: 25,
