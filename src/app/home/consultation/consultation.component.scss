@@ -1,9 +1,10 @@
 @import '../../shared/shared.scss';
 
-h4 {
+h5 {
     color: #fff;
     flex: auto;
     font-family: 'roboto';
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -22,6 +23,11 @@ p {
 
 .mat-primary {
   margin-left: 20px;
+}
+
+.add-details {
+  font-size: 18px;
+  margin-left: 50px;
 }
 
 .forward-appointment {
@@ -88,9 +94,15 @@ p {
 
 //height of main container
 .next-consultation {
-    border-bottom: 2px solid red;
-    height: 55%;
+    border-bottom: 4px solid #86cc7a;
+    height: 60%;
     position: relative;
+}
+
+.patient-name {
+  color: #222;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .patient-section {

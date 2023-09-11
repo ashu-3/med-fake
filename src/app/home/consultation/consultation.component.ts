@@ -111,7 +111,8 @@ export class ConsultationComponent implements OnInit {
   }
 
   ///add details popuop
-  toggleAddDetails() {
+  toggleAddDetails(event:Event) {
+    event.preventDefault();
     this.showAddModal = !this.showAddModal;
     this.hideSuccessMsg = true;
 
