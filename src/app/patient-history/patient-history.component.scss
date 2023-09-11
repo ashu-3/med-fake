@@ -55,19 +55,20 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-height: 90%;
     max-width: 80%;
-    padding: 10px;
     
   }
   
   /* Style for the close button */
   .modal-header {
+    background:#3a6440;
     display: flex;
     justify-content: flex-end;
   }
   
   .close {
-    font-size: 24px;
+    color:#fff;
     cursor: pointer;
+    font-size: 24px;
   }
   
   /* Style for the modal image */
