@@ -8,7 +8,7 @@
             <p>Last Visited on: {{ patientDetails.lastVisited | date:'dd MMM yyyy' }}</p>
             <span class="history"><a [routerLink]="['/history', patientDetails.patientId]"><p>history</p></a></span>
             <!-- <button mat-raised-button color="primary" (click)="toggleAddDetails()">Add details <span class="add-icon">+</span></button> -->
-            <span class="add-details"><a href=# (click)="toggleAddDetails($event)">add details </a></span>
+            <span class="add-details"><a href=# (click)="toggleAddDetails($event)">add reciept </a></span>
           </div>
         <div class="time-slot"> 
             <h4>appointment slot : {{ patientDetails.timeSlot }}</h4>
@@ -73,7 +73,7 @@
   <div class="modal-dialog">
       <div class="modal-content">
           <div class="modal-header">
-              <h5>patient-details</h5>
+              <h5>add Receipt</h5>
               <span class="close" (click)="toggleAddDetails($event)">&times;</span>
           </div>
           <div class="modal-body">
