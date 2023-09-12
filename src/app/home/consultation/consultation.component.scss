@@ -21,6 +21,11 @@ p {
     font-size: 18px;
 }
 
+thead {
+  background-color: #6899d8;
+  color: #fff;
+}
+
 .mat-primary {
   margin-left: 20px;
 }
@@ -95,7 +100,7 @@ p {
 
 //height of main container
 .next-consultation {
-    border-bottom: 4px solid #6899d8;
+    border-bottom: 1px solid #6899d8;
     height: 60%;
     position: relative;
 }
@@ -113,7 +118,7 @@ p {
 }
 
 .patient-receipt {
-    border: 2px solid #868c86;
+    border: 2px solid #9caabd;
     cursor: pointer;
     & >  img{
             height: 300px;
