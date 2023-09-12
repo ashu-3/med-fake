@@ -72,7 +72,8 @@ p {
   
   /* Style for the close button */
   .modal-header {
-    background-color:#3a6440;;
+    //background-color:#3a6440;
+    background-color: #3a5c88;
 
     display: flex;
     justify-content: flex-end;
@@ -94,7 +95,7 @@ p {
 
 //height of main container
 .next-consultation {
-    border-bottom: 4px solid #86cc7a;
+    border-bottom: 4px solid #6899d8;
     height: 60%;
     position: relative;
 }
