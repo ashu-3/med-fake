@@ -16,7 +16,7 @@ export class PatientDetailsService {
       {
         patientId:101,
         city:"sagara",
-        dateSlot:new Date("2023-09-11"),
+        dateSlot:new Date("2023-09-12"),
         timeSlot:"10-30",
         patientName: "Rajdha",
         patientAge: 35,
@@ -26,7 +26,7 @@ export class PatientDetailsService {
       {
         patientId:102,
         city:"hosasagara",
-        dateSlot:new Date("2023-09-08"),
+        dateSlot:new Date("2023-09-12"),
         timeSlot:"11-30",
         patientName: "Rajdha",
         patientAge: 53,
@@ -36,7 +36,7 @@ export class PatientDetailsService {
       {
         patientId:103,
         city:"namma sagara",
-        dateSlot:new Date("2023-09-06"),
+        dateSlot:new Date("2023-09-12"),
         timeSlot:"15-30",
         patientName: "abc Raju okRaj",
         patientAge: 45,
@@ -58,7 +58,7 @@ export class PatientDetailsService {
         patientId:105,
         city:"beluru",
         patientName: "xyz okRaj",
-        dateSlot:new Date("2023-09-07"),
+        dateSlot:new Date("2023-09-12"),
         timeSlot:"15-30",
         patientAge: 32,
         patientMobile: 87678909876,
