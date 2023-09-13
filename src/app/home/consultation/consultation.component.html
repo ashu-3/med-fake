@@ -17,6 +17,10 @@
             <img [src]="imageUrl" alt="Receipt Image" (click)="toggleModal()">
         </div>
     </div> 
+
+    <div *ngIf="patientDetails === null">
+        <p>No appointment booked </p>
+    </div>
     <div  class="forward-appointment">
         <button mat-button color="primary" (click)="onPreviousClick()" *ngIf="patientIndex > 0">Previous Consultaion</button>
         <button mat-button color="primary" (click)="onNextClick()" *ngIf="hasMorePatients()">Next Consultaion</button>
