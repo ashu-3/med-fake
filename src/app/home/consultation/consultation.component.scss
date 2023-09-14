@@ -100,8 +100,9 @@ thead {
 
 //height of main container
 .next-consultation {
+    background-color: #e8eaee;
     border-bottom: 1px solid #6899d8;
-    height: 60%;
+    height: 65%;
     position: relative;
 }
 
@@ -114,7 +115,7 @@ thead {
 .patient-section {
     display: flex;
     justify-content:space-around;
-    margin-top: 50px;
+    padding-top: 50px;
 }
 
 .patient-receipt {
