@@ -1,13 +1,13 @@
 <!-- check patienthistory needed in ngif -->
-<div class="patient-section" *ngIf="patientDetails && (patientDetails.lastVisited !==null)">
+    <div class="patient-section" *ngIf="patientDetails && (patientDetails.lastVisited !==null)">
+      <div class="patient-details">
+        <p>patient Id: {{patientDetails.patientId}}</p>
+    </div>
     <div class="patient-details">
         <p>patient Name: {{patientDetails.patientName}}</p>
     </div>
     <div class="patient-details">
         <p>age: {{patientDetails.patientAge}}</p>
-    </div>
-    <div class="patient-details">
-        <p>mob: {{patientDetails.patientMobile}}</p>
     </div>
 
     <!-- <div class="patient-details"></div>
