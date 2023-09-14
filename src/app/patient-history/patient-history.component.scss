@@ -7,6 +7,10 @@
   font-weight: 900;
 }
 
+::ng-deep .mat-select-value {
+  color: #eed1d1;
+}
+
 .no-records {
     font-size: 18px;
     margin:20px;
