@@ -16,7 +16,7 @@ export class PatientDetailsService {
       {
         patientId:101,
         city:"sagara",
-        dateSlot:new Date("2023-09-15"),
+        dateSlot:new Date("2023-09-29"),
         timeSlot:"10-30",
         patientName: "Rajdha",
         patientAge: 35,
@@ -26,7 +26,7 @@ export class PatientDetailsService {
       {
         patientId:102,
         city:"hosasagara",
-        dateSlot:new Date("2023-09-14"),
+        dateSlot:new Date("2023-09-29"),
         timeSlot:"11-30",
         patientName: "Rajdha",
         patientAge: 53,
@@ -36,7 +36,7 @@ export class PatientDetailsService {
       {
         patientId:103,
         city:"namma sagara",
-        dateSlot:new Date("2023-09-14"),
+        dateSlot:new Date("2023-09-29"),
         timeSlot:"15-30",
         patientName: "abc Raju okRaj",
         patientAge: 45,
@@ -46,7 +46,7 @@ export class PatientDetailsService {
       {
         patientId:104,
         city:"sshimoga",
-        dateSlot:new Date("2023-09-15"),
+        dateSlot:new Date("2023-09-29"),
         timeSlot:"14-30",
         patientName: "Raju okRaj",
         patientAge: 4,
@@ -58,7 +58,7 @@ export class PatientDetailsService {
         patientId:105,
         city:"beluru",
         patientName: "xyz okRaj",
-        dateSlot:new Date("2023-09-14"),
+        dateSlot:new Date("2023-09-22"),
         timeSlot:"15-30",
         patientAge: 32,
         patientMobile: 87678909876,
@@ -67,7 +67,7 @@ export class PatientDetailsService {
       {
         patientId:106,
         city:"makki gadde",
-        dateSlot:new Date("2023-09-15"),
+        dateSlot:new Date("2023-09-22"),
         timeSlot:"10-30",
         patientName: "xyz abc",
         patientAge: 33,
@@ -77,7 +77,7 @@ export class PatientDetailsService {
       {
         patientId:107,
         city:"sagara",
-        dateSlot:new Date("2023-09-14"),
+        dateSlot:new Date("2023-09-26"),
         timeSlot:"11-30",
         patientName: "ipson123",
         patientAge: 35,
@@ -87,7 +87,7 @@ export class PatientDetailsService {
       {
         patientId:108,
         city:"hombale",
-        dateSlot:new Date("2023-09-15"),
+        dateSlot:new Date("2023-09-26"),
         timeSlot:"12-30",
         patientName: "lorum",
         patientAge: 23,
@@ -98,7 +98,7 @@ export class PatientDetailsService {
       {
         patientId:109,
         city:"shimoga",
-        dateSlot:new Date("2023-09-16"),
+        dateSlot:new Date("2023-09-27"),
         timeSlot:"14-30",
         patientName: "lorum123",
         patientAge: 25,
@@ -109,7 +109,7 @@ export class PatientDetailsService {
       {
         patientId:110,
         city:"shimoga",
-        dateSlot:new Date("2023-09-16"),
+        dateSlot:new Date("2023-09-27"),
         timeSlot:"16-30",
         patientName: "lorum xyz",
         patientAge: 25,
@@ -120,7 +120,7 @@ export class PatientDetailsService {
       {
         patientId:111,
         city:"shimoga",
-        dateSlot:new Date("2023-09-13"),
+        dateSlot:new Date("2023-09-27"),
         timeSlot:"13-30",
         patientName: "ipsum xyz",
         patientAge: 25,
@@ -131,7 +131,7 @@ export class PatientDetailsService {
       {
         patientId:112,
         city:"shimoga",
-        dateSlot:new Date("2023-09-16"),
+        dateSlot:new Date("2023-09-27"),
         timeSlot:"12-30",
         patientName: "raju 123",
         patientAge: 25,

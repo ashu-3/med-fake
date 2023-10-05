@@ -14,21 +14,26 @@ export class ConsultationComponent implements OnInit {
 
   @ViewChild('fileInput') fileInput!: ElementRef;
 
+  activeTab: string = 'all';
+
   hideSuccessMsg = true;
   showAddModal = false;
+  showAddNotesModal = false;
   showModal = false;
   imageUrl = 'https://img.freepik.com/free-vector/realistic-receipt-template_23-2147938550.jpg?w=2000';
 
   consulationTableHeader = ['#','name','time slot','age','contact no','last visited','city'];
   currentDate = new Date(); // Current date
   currentTimeSlot = '11:30'; // Current time slot
+  historyTableHeader = ['name','visited date', 'recipt', 'notes']
 
   attachedFiles: File[] = [];
 
   //table pagination
   currentPage = 1;
   itemsPerPage = 3;
-
+  historyLength = 1;
+  notesContent:string='';
   patientIndex: number=0;
 
   patientDetails: {
@@ -52,6 +57,7 @@ export class ConsultationComponent implements OnInit {
   } [] = [];
 
   filteredData: any[] = []; // Initialize as an empty array
+  patientHistory:any[] = [];
 
   constructor(private consultationSer:PatientDetailsService,private filterPipe:FilterTableTimeslotPipe, private datePipe: DatePipe,private patientHistoryService:PatientHistoryService ) {
    }
@@ -118,27 +124,55 @@ export class ConsultationComponent implements OnInit {
 
   }
 
-  /// pagination
-  previousPage() {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-    }
+  ///add Notes popuop
+  toggleAddNotesDetails(event:Event) {
+    event.preventDefault();
+    this.showAddNotesModal = !this.showAddNotesModal;
+    this.hideSuccessMsg = true;
+
   }
 
-  nextPage() {
-    if (this.currentPage < this.totalPages()) {
+  /// pagination
+
+  nextPageHistory() {
+    if (this.currentPage < this.totalHistory()) {
       this.currentPage++;
     }
   }
 
+    previousPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
+    }
+  
+    nextPage() {
+      if (this.currentPage < this.totalPages()) {
+        this.currentPage++;
+      }
+    }
+
   totalPages(): number {
     return Math.ceil(this.filteredData.length / this.itemsPerPage);
+  }
+
+  totalHistory(): number {
+    console.log('159'+this.patientHistory.length);
+    console.log(this.patientHistory);
+    return Math.ceil(this.historyLength / this.itemsPerPage);
   }
 
   getVisibleItems(): any[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
     return this.filteredData.slice(startIndex, endIndex);
+  }
+
+  getPatientHistory(patientId:number):any {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.historyLength = this.patientHistoryService.findPatientById(patientId).visitedDetails.length;
+    return this.patientHistory = this.patientHistoryService.findPatientById(patientId).visitedDetails.slice(startIndex,endIndex);
   }
 
   onFileChange(event: any) {
@@ -169,5 +203,25 @@ export class ConsultationComponent implements OnInit {
     }
   }
 
+  attachNotesToPatient(notes:string) {
+    const patientId = this.patientDetails?.patientId;
+    if (patientId) {
+      this.patientHistoryService.addNotesToVisitedDetails(
+        patientId,
+        new Date(),
+        this.notesContent = notes
+      );
+      if(this.notesContent!=''){
+        this.hideSuccessMsg = false;
+      }
+      console.log("patient id"+patientId);
+      console.log("notesContent"+this.notesContent);
+      // Clear the input field after attaching files
+    }
+  }
+
+  setActiveTab(tab: string) {
+    this.activeTab = tab;
+  }
 
 }

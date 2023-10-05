@@ -6,9 +6,9 @@
             <p>age: {{patientDetails.patientAge}}</p>
             <p>mob: {{patientDetails.patientMobile}}</p>
             <p>Last Visited on: {{ patientDetails.lastVisited | date:'dd MMM yyyy' }}</p>
-            <span class="history"><a [routerLink]="['/history', patientDetails.patientId]"><p>history</p></a></span>
+            <!-- <span class="history"><a [routerLink]="['/history', patientDetails.patientId]"><p>history</p></a></span> -->
             <!-- <button mat-raised-button color="primary" (click)="toggleAddDetails()">Add details <span class="add-icon">+</span></button> -->
-            <span class="add-details"><a href=# (click)="toggleAddDetails($event)">add reciept </a></span>
+            <!-- <span class="add-details"><a href=# (click)="toggleAddDetails($event)">add reciept </a></span> -->
           </div>
         <div class="time-slot"> 
             <h4>appointment slot : {{ patientDetails.timeSlot }}</h4>
@@ -27,29 +27,77 @@
     </div>
 </div>
 
-<div class="all-consultation">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th *ngFor="let thData of consulationTableHeader">{{ thData }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let trData of getVisibleItems(); let i = index">
-        <tr>
-          <th scope="row">{{ (currentPage - 1) * itemsPerPage + i + 1 }}</th>
-          <td>{{ trData.patientName }}</td>
-          <td>{{ trData.timeSlot }}</td>
-          <td>{{ trData.patientAge }}</td>
-          <td>{{ trData.patientMobile }}</td>
-          <td>{{ trData.lastVisited | date:'dd MMM yyyy' }}</td>
-          <td>{{ trData.city }}</td>
-        </tr>
-      </ng-container>
-    </tbody>
-  </table>
+<div class="all-consultation" *ngIf="patientDetails">
+  <ul class="nav nav-tabs">
+    <li class="nav-item" [class.active]="activeTab === 'all'">
+      <a class="nav-link" (click)="setActiveTab('all')">All Consultation</a>
+    </li>
+    <li class="nav-item" [class.active]="activeTab === 'history'">
+      <a class="nav-link" (click)="setActiveTab('history');getPatientHistory(patientDetails.patientId);">history</a>
+    </li>
+    <li class="nav-item" [class.active]="activeTab === 'add-receipt'">
+      <a class="nav-link" (click)="toggleAddDetails($event)">add receipt</a>
+    </li>
+    <li class="nav-item" [class.active]="activeTab === 'add-notes'">
+      <a class="nav-link" (click)="toggleAddNotesDetails($event)">add notes</a>
+    </li>
+  </ul>
 
-  <div class="pagination-controls">
+  <div class="tab-content" *ngIf="activeTab==='all'">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th *ngFor="let thData of consulationTableHeader">{{ thData }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let trData of getVisibleItems(); let i = index">
+          <tr>
+            <th scope="row">{{ (currentPage - 1) * itemsPerPage + i + 1 }}</th>
+            <td>{{ trData.patientName }}</td>
+            <td>{{ trData.timeSlot }}</td>
+            <td>{{ trData.patientAge }}</td>
+            <td>{{ trData.patientMobile }}</td>
+            <td>{{ trData.lastVisited | date:'dd MMM yyyy' }}</td>
+            <td>{{ trData.city }}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-content" *ngIf="activeTab==='history'">
+    <table class="table table-striped" *ngIf="patientDetails">
+      <thead>
+        <tr>
+          <th *ngFor="let thData of historyTableHeader">{{ thData }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container>
+          <tr *ngFor="let patient of patientHistory">
+            <td>{{patientDetails.patientName}}</td>
+            <td>{{ patient.visitedDate | date:'dd MMM yyyy' }}</td>
+            <td><a href="">view receipt</a></td>
+            <td><a href="">view details</a></td>
+            <!-- <td>{{ }}</td> -->
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-content" *ngIf="activeTab==='add-receipt'">
+    <!-- Content for Add Receipt tab -->
+       Receipt Content
+  </div>
+
+  <div class="tab-content" *ngIf="activeTab==='add-notes'">
+    <!-- Content for Add Notes tab -->
+    Add Notes Content
+  </div>
+
+  <div class="pagination-controls" *ngIf="activeTab==='all'">
     <button mat-icon-button (click)="previousPage()" [disabled]="currentPage === 1">
       <mat-icon>chevron_left</mat-icon>
     </button>
@@ -58,6 +106,16 @@
       <mat-icon>chevron_right</mat-icon>
     </button>
   </div>
+</div>
+
+<div class="pagination-controls" *ngIf="activeTab==='history' && patientDetails">
+  <button mat-icon-button (click)="previousPage()" [disabled]="currentPage === 1">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+  <span>Page {{ currentPage }}</span>
+  <button mat-icon-button (click)="nextPageHistory()" [disabled]="currentPage === totalHistory()">
+    <mat-icon>chevron_right</mat-icon>
+  </button>
 </div>
 
 <div class="modal" *ngIf="showModal">
@@ -92,6 +150,25 @@
                   <mat-icon>attachment</mat-icon>add selected file
               </button>
               <p class="success-msg" [hidden]="hideSuccessMsg">File attached succesfully</p>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal notesModal" *ngIf="showAddNotesModal && patientDetails">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5>add notes to patient - {{patientDetails.patientName}} </h5>
+              <span class="close" (click)="toggleAddNotesDetails($event)">&times;</span>
+          </div>
+          <div class="modal-body">
+              <p>Patient id: {{patientDetails.patientId}}</p>
+              <textarea #notesContent placeholder="add notes here"></textarea>
+              <button mat-raised-button color="primary" aria-label="Example icon-button with a icon" (click)="attachNotesToPatient(notesContent.value)">
+                  + add notes
+              </button>
+              <p class="success-msg" [hidden]="hideSuccessMsg">Notes attached succesfully</p>
           </div>
       </div>
   </div>

@@ -15,6 +15,7 @@ export class PatientHistoryService {
       {
         visitedDate:Date ,
         imageURL:string,
+        notes?:string
       }
     >
   }> = [];
@@ -26,7 +27,8 @@ export class PatientHistoryService {
         visitedDetails:[
           {
             visitedDate: new Date('2022-08-31'),
-            imageURL:"https://images.template.net/8481/medical--receipt-template-f89ak.png"
+            imageURL:"https://images.template.net/8481/medical--receipt-template-f89ak.png",
+            notes: 'string'
           },
           {
             visitedDate:new Date('2022-05-12'),
@@ -34,11 +36,13 @@ export class PatientHistoryService {
           },
           {
             visitedDate:new Date('2022-04-2'),
-            imageURL:"https://img.freepik.com/free-vector/flat-design-medical-invoice_23-2149188232.jpg?w=2000"
+            imageURL:"https://img.freepik.com/free-vector/flat-design-medical-invoice_23-2149188232.jpg?w=2000",
+            notes: 'string'
           },
           {
             visitedDate:new Date('2022-03-12'),
-            imageURL:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1SOHxLX2DN53rtWg0PEYUDB6tTKLC7jSjfrqrXFElwiLAAgCXEXwkp-GLf_KgamTGbxE&usqp=CAU"
+            imageURL:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1SOHxLX2DN53rtWg0PEYUDB6tTKLC7jSjfrqrXFElwiLAAgCXEXwkp-GLf_KgamTGbxE&usqp=CAU",
+            notes: 'string',
           }
         ]
       },
@@ -48,15 +52,18 @@ export class PatientHistoryService {
         visitedDetails:[
           {
             visitedDate: new Date('2022-07-21'),
-            imageURL:"https://i.pinimg.com/1200x/d3/b8/60/d3b860e01e58170744bab314d4838697.jpg"
+            imageURL:"https://i.pinimg.com/1200x/d3/b8/60/d3b860e01e58170744bab314d4838697.jpg",
+            notes: 'notes1'
           },
           {
             visitedDate:new Date('2022-05-12'),
-            imageURL:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1SOHxLX2DN53rtWg0PEYUDB6tTKLC7jSjfrqrXFElwiLAAgCXEXwkp-GLf_KgamTGbxE&usqp=CAU"
+            imageURL:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1SOHxLX2DN53rtWg0PEYUDB6tTKLC7jSjfrqrXFElwiLAAgCXEXwkp-GLf_KgamTGbxE&usqp=CAU",
+            notes: 'notes2'
           },
           {
             visitedDate:new Date('2022-06-12'),
-            imageURL:"https://img.freepik.com/free-vector/flat-design-medical-invoice_23-2149188232.jpg?w=2000"
+            imageURL:"https://img.freepik.com/free-vector/flat-design-medical-invoice_23-2149188232.jpg?w=2000",
+            notes: 'string'
           }
         ]
       },
@@ -66,15 +73,18 @@ export class PatientHistoryService {
         visitedDetails:[
           {
             visitedDate: new Date('2022-07-21'),
-            imageURL:"https://img.freepik.com/free-vector/realistic-receipt-template_23-2147938550.jpg?w=2000"
+            imageURL:"https://img.freepik.com/free-vector/realistic-receipt-template_23-2147938550.jpg?w=2000",
+            notes: 'string'
           },
           {
             visitedDate:new Date('2022-06-12'),
-            imageURL:"https://img.freepik.com/free-vector/flat-design-medical-invoice_23-2149188232.jpg?w=2000"
+            imageURL:"https://img.freepik.com/free-vector/flat-design-medical-invoice_23-2149188232.jpg?w=2000",
+            notes: 'string'
           },
           {
             visitedDate:new Date('2022-05-12'),
-            imageURL:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1SOHxLX2DN53rtWg0PEYUDB6tTKLC7jSjfrqrXFElwiLAAgCXEXwkp-GLf_KgamTGbxE&usqp=CAU"
+            imageURL:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1SOHxLX2DN53rtWg0PEYUDB6tTKLC7jSjfrqrXFElwiLAAgCXEXwkp-GLf_KgamTGbxE&usqp=CAU",
+            notes: 'notes1'
           },
         ]
       },
@@ -105,7 +115,8 @@ export class PatientHistoryService {
         visitedDetails:[
           {
             visitedDate: new Date('2022-08-31'),
-            imageURL:"https://images.template.net/8481/medical--receipt-template-f89ak.png"
+            imageURL:"https://images.template.net/8481/medical--receipt-template-f89ak.png",
+            notes: 'string'
           },
           {
             visitedDate:new Date('2022-06-12'),
@@ -113,7 +124,8 @@ export class PatientHistoryService {
           },
           {
             visitedDate:new Date('2022-04-12'),
-            imageURL:"https://img.freepik.com/free-vector/flat-design-medical-invoice_23-2149188232.jpg?w=2000"
+            imageURL:"https://img.freepik.com/free-vector/flat-design-medical-invoice_23-2149188232.jpg?w=2000",
+            notes: 'string'
           },
           {
             visitedDate:new Date('2022-01-12'),
@@ -126,7 +138,8 @@ export class PatientHistoryService {
         visitedDetails:[
           {
             visitedDate: new Date('2022-08-31'),
-            imageURL:"https://images.template.net/8481/medical--receipt-template-f89ak.png"
+            imageURL:"https://images.template.net/8481/medical--receipt-template-f89ak.png",
+            notes: 'string'
           },
           {
             visitedDate:new Date('2022-06-12'),
@@ -156,6 +169,17 @@ export class PatientHistoryService {
         patient.visitedDetails = [];
       }
       patient.visitedDetails.push({ visitedDate, imageURL });
+    }
+  }
+
+  //Function to dd notes
+  public addNotesToVisitedDetails(patientId: number, visitedDate: Date, notes: string): void {
+    const patient = this.findPatientById(patientId);
+    if (patient) {
+      if (!patient.visitedDetails) {
+        patient.visitedDetails = [];
+      }
+      patient.visitedDetails.push({ visitedDate, notes });
     }
   }
 }

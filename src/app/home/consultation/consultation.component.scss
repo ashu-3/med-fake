@@ -21,13 +21,25 @@ p {
     font-size: 18px;
 }
 
+textarea {
+  height: 200px;
+  margin: 20px 0;
+  width: 100%; 
+}
+
 thead {
   background-color: #4f6076;
   color: #fff;
 }
 
-.mat-primary {
-  margin-left: 20px;
+.active {
+  font-weight: 700;
+
+  & > {
+    a {
+      color: darkgreen;
+    }
+  }
 }
 
 .add-details {
@@ -35,15 +47,30 @@ thead {
   margin-left: 50px;
 }
 
+.all-consultation {
+  & > ul {
+    zoom: 105%;
+    & > li {
+      & > a{
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 .forward-appointment {
     bottom: 10px;
-    margin-left:20px;
+    right:20px;
     position: absolute;
 }
 
 .history {
     display: inline-block;
     margin-top: 20px;
+}
+
+.mat-primary {
+  margin-left: 20px;
 }
 
 .modal {
@@ -55,7 +82,8 @@ thead {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1;
-  }
+}
+
   
   /* Style for the modal dialog */
   .modal-dialog {
@@ -98,11 +126,16 @@ thead {
     }
   }
 
+  .notesModal {
+   
+    z-index: 9999;
+  }
+
 //height of main container
 .next-consultation {
     background-color: #e8eaee;
     border-bottom: 1px solid #6899d8;
-    height: 65%;
+    height: 60%;
     position: relative;
 }
 
@@ -143,3 +176,6 @@ thead {
       max-width: 80%;
     }
   }
+
+
+  

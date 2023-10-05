@@ -18,6 +18,12 @@ thead {
   color: #fff;
 }
 
+tr {
+  &:hover {
+    background-color: #a2a7ae!important;
+  }
+}
+
 .search-bar {
     align-items: center;
     border-bottom: 6px solid #959595;

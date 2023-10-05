@@ -54,7 +54,8 @@ export class PatientListComponent implements OnInit {
     this.allPatientDetails = this.allPtainetSer.allPatientDetails.filter(
       (patient) =>
         patient.patientName.toLowerCase().includes(searchTerm) ||
-        patient.patientId.toString().includes(searchTerm)
+        patient.patientId.toString().includes(searchTerm) ||
+        patient.patientMobile?.toString().includes(searchTerm)
     );
   }
 
